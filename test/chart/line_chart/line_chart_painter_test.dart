@@ -1703,7 +1703,7 @@ void main() {
       expect(results.length, 2);
 
       for (final item in results) {
-        expect((item['paint_color'] as Color).a, 0);
+        expect((item['paint_color'] as Color).alpha, 0);
         expect(item['paint_stroke_width'], 18);
       }
     });
@@ -1885,7 +1885,7 @@ void main() {
       expect(results.length, 2);
 
       for (final item in results) {
-        expect((item['paint_color'] as Color).a, 0);
+        expect((item['paint_color'] as Color).alpha, 0);
         expect(item['paint_stroke_width'], 18);
       }
     });

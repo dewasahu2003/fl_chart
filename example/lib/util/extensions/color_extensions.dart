@@ -1,15 +1,15 @@
 import 'dart:ui';
 
 extension ColorExtension on Color {
-  /// Convert the color to a darken color based on the [percent]
+  /// Convert the color to alpha darken color based on the [percent]
   Color darken([int percent = 40]) {
     assert(1 <= percent && percent <= 100);
     final value = 1 - percent / 100;
     return Color.fromARGB(
-      _floatToInt8(a),
-      (_floatToInt8(r) * value).round(),
-      (_floatToInt8(g) * value).round(),
-      (_floatToInt8(b) * value).round(),
+      _floatToInt8(alpha),
+      (_floatToInt8(red) * value).round(),
+      (_floatToInt8(green) * value).round(),
+      (_floatToInt8(blue) * value).round(),
     );
   }
 
@@ -17,18 +17,18 @@ extension ColorExtension on Color {
     assert(1 <= percent && percent <= 100);
     final value = percent / 100;
     return Color.fromARGB(
-      _floatToInt8(a),
-      (_floatToInt8(r) + ((255 - _floatToInt8(r)) * value)).round(),
-      (_floatToInt8(g) + ((255 - _floatToInt8(g)) * value)).round(),
-      (_floatToInt8(b) + ((255 - _floatToInt8(b)) * value)).round(),
+      _floatToInt8(alpha),
+      (_floatToInt8(red) + ((255 - _floatToInt8(red)) * value)).round(),
+      (_floatToInt8(green) + ((255 - _floatToInt8(green)) * value)).round(),
+      (_floatToInt8(blue) + ((255 - _floatToInt8(blue)) * value)).round(),
     );
   }
 
   Color avg(Color other) {
-    final red = (_floatToInt8(r) + _floatToInt8(other.r)) ~/ 2;
-    final green = (_floatToInt8(g) + _floatToInt8(other.g)) ~/ 2;
-    final blue = (_floatToInt8(b) + _floatToInt8(other.b)) ~/ 2;
-    final alpha = (_floatToInt8(a) + _floatToInt8(other.a)) ~/ 2;
+    final red = (_floatToInt8(red) + _floatToInt8(other.red)) ~/ 2;
+    final green = (_floatToInt8(green) + _floatToInt8(other.green)) ~/ 2;
+    final blue = (_floatToInt8(blue) + _floatToInt8(other.blue)) ~/ 2;
+    final alpha = (_floatToInt8(alpha) + _floatToInt8(other.alpha)) ~/ 2;
     return Color.fromARGB(alpha, red, green, blue);
   }
 
